@@ -11,7 +11,6 @@ export const RestaurantContextProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const retrieveRestaurants = () => {
     setLoading(true);
     setTimeout(() => {
