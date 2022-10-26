@@ -1,16 +1,29 @@
 import React from "react";
+import { Text } from "react-native-paper";
 
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 
-const Stack = createStackNavigator();
+import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
 
-function MyStack() {
+const RestaurantStack = createStackNavigator();
+
+export const RestaurantsNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={} />
-      <Stack.Screen name="Notifications" component={} />
-      <Stack.Screen name="Profile" component={} />
-      <Stack.Screen name="Settings" component={} />
-    </Stack.Navigator>
+    <RestaurantStack.Navigator
+      headerMode="none"
+      screenOptions={{ ...TransitionPresets.ModalSlideFromBottomIOS }}
+    >
+      <RestaurantStack.Screen
+        name="Restaurants"
+        component={RestaurantsScreen}
+      />
+      <RestaurantStack.Screen
+        name="RestaurantDetail"
+        component={() => <Text>Restaurant Detail </Text>}
+      />
+    </RestaurantStack.Navigator>
   );
-}
+};
